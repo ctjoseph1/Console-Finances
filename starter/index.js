@@ -1,3 +1,11 @@
+//Psdeudocode: 
+//Need a formula that allows for counting of the total number of months
+//Need total amount of profit or losses over entire period Jan 2010- Feb 2017
+  //e.g arr[i][1]” selects the current array’s second item and loop it so it goes back and adds the next one.
+  //
+
+ 
+
 var finances = [
   ['Jan-2010', 867884],
   ['Feb-2010', 984655],
@@ -88,6 +96,16 @@ var finances = [
 ];
 
 //total Months
-console.log (finances.length)
+console.log (finances.length);
 
 //The net total amount of Profit/Losses over the entire period.
+let total = 0;
+
+var arr= finances
+for (var i = 0; i < arr.length; i++) {
+total += arr[i][1];
+}
+
+console.log(total)
+
+
