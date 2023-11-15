@@ -1,8 +1,29 @@
-//Psdeudocode: 
-//Need a formula that allows for counting of the total number of months
-//Need total amount of profit or losses over entire period Jan 2010- Feb 2017
-  //e.g arr[i][1]” selects the current array’s second item and loop it so it goes back and adds the next one.
-  //
+/*
+Psdeudocode: 
+1. Need a formula that allows for counting of the total number of months
+2. Need total amount of profit or losses over entire period Jan 2010- Feb 2017
+  e.g arr[i][1]” selects the current array’s second item and loop it so it goes back and adds the next one.
+  Need to then define the array: var arr= finances
+3. The average of changes in profit/losses over the entire period:need to track what the total change in 
+Profit/Losses are from month to month and then find the average. Total/(Number of months - 1)
+First compute the change for each month
+The greatest increase in Profit/Losses (date and amount) over the entire period.
+The greatest decrease in Profit/Losses (date and amount) over the entire period.
+*/
+
+// i = 0
+
+// finances[i+1][1] - finances[i][1] = change1
+
+// i = 1
+
+// finances[i+1][1] - finances[i][1] = change2
+
+// finances[3][1] - finances[2][1] = change2
+// finances[4][1] - finances[3][1] = change2
+// finances[5][1] - finances[4][1] = change2
+// finances[6][1] - finances[5][1] = change2
+
 
  
 
@@ -108,4 +129,83 @@ total += arr[i][1];
 
 console.log(total)
 
+var totalChange = 0;
 
+//track what the total change in Profit/Losses are from month to month and then find the average.
+for(i = 0; i < finances.length - 1; i++) {
+    var num2 = finances[i+1][1]
+    var num1 = finances[i][1]
+
+    // finances[i+1][1] - finances[i][1]
+    var change = num2 - num1
+
+    console.log(change)
+    console.log("----------")
+
+    totalChange+=change
+}
+
+console.log("Total change:" + totalChange)
+
+var averageChange = (totalChange / (finances.length - 1))
+
+console.log("Average change: " + averageChange)
+
+var roundedNum = Math.round(averageChange * 100) / 100
+
+console.log(roundedNum)
+
+/*
+
+for(i = 0; i < 3; i++) {
+ console.log("Hello")
+}
+
+for(1 ; 2; 3) {
+  code inside
+}
+
+1 -> iterator initialization
+   -> this is where we define where we start our count
+
+2 -> conditional statement
+   -> decides whether to allow the code iniside to execute
+  
+3 -> iterator step
+   -> decides how much we add to the iterator as we count
+
+
+simulation
+
+1st iteration
+---- i = 0
+---- i < 3 --> 0 < 3 ---> true
+---- "Hello"
+---- i++ ---> i = i + 1 ----> i = 0 + 1
+---- i = 1
+
+2nd iteration
+---- i = 1
+---- i < 3 ---> 1 < 3 ---> true
+---- "Hello"
+---- i++ ---> i = i + 1 ----> i = 1 + 1
+---- i = 2
+
+3rd iteration
+---- i = 2
+---- i < 3 ---> 2 < 3 ---> true
+---- "Hello"
+---- i++ ---> i = i + 1 ----> i = 2 + 1
+---- i = 3
+
+4th iteration
+---- i = 3
+---- i < 3 ----> 3 < 3 ---> false
+--- END
+
+*/
+
+
+//The greatest increase in Profit/Losses (date and amount) over the entire period.
+
+// The greatest decrease in Profit/Losses (date and amount) over the entire period.
